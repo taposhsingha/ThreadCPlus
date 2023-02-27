@@ -52,5 +52,19 @@ int main()
     Task4 b;
     std::thread t4(&Task4::run,&b,10);
     t4.join();
+    //static members
+    class Task5
+    {
+    public:
+        static void run(int m)
+        {
+            for(int n=0; n<m; n++)
+            {
+                cout << n <<endl;
+            }
+        }
+    };
+    std::thread t(&Task5::run,10);
+    t.join();
     return 0;
 }
